@@ -5,9 +5,9 @@ import cors from "cors";
 
 //Files
 import connectDB from "./db.js";
-import userRoute from "./routes/userRoute.js";
-import genreRoute from "./routes/genreRoute.js";
-import moviesRoute from "./routes/moviesRoute.js";
+// import userRoute from "./routes/userRoute.js";
+import genraRoute from "./routes/genraRoute.js";
+// import moviesRoute from "./routes/moviesRoute.js";
 
 //Configurations
 dotenv.config();
@@ -19,9 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-app.use("/api/v1/users", userRoute);
-app.use("/api/v1/genres", genreRoute);
-app.use("/api/v1/movies", moviesRoute);
+// app.use("/api/v1/users", userRoute);
+app.use("/api/v1/genres", genraRoute);
+// app.use("/api/v1/movies", movieRoute);
 
 const PORT = process.env.PORT || 5001;
 
