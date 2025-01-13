@@ -1,7 +1,14 @@
+import {Outlet} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return (
-    <div className='text-5xl'>App</div>
+    <main>
+      <ToastContainer />
+      <Navbar />
+      <Outlet />
+    </main>
   )
 }
 
