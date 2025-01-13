@@ -38,4 +38,40 @@ const createUser = asyncHandler(async (req, res) =>{
 
 })
 
-export default createUser;
+const loginUser = asyncHandler(async (req,res) =>{
+    const { email, password } = req.body;
+    const existingUser = await User.findOne({email});
+
+    if(existingUser){
+        const validPassword =  bcrypt.compare(password, existingUser.password);
+        if(validPassword){
+            createToken(res, existingUser._id);
+            res.status(201).json(existingUser);
+        }else{
+            res.status(401);
+            throw new Error("Invalid credentials");
+        }
+    }else{
+        res.status(400);
+        throw new Error("User does not exist");
+    }
+
+})
+
+const logoutUser = asyncHandler(async (req, res) =>{
+    res.cookie('jwt', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    })
+    res.status(200).json({message: "Logged out successfully"});
+})
+
+const getAllUsers = asyncHandler(async (req, res) =>{
+    const users = await User.find({});
+    res.status(200).json(users);
+})
+
+
+
+
+export { createUser, loginUser, logoutUser, getAllUsers };

@@ -2,11 +2,13 @@ Todos:
 ✔ genre, movie, user 
 ✔ create routes, model and controller for each
 ✔ middleware: asyncHandler for catching error,
-- [Next]  authMiddleware jwt token for authentication and authorization as admin
-- generate token from jwt
+✔ authMiddleware jwt token for authentication and authorization as admin
+✔ generate token from jwt
 - change genra to genres
-- userController - create, login and logout
-- crud - genres and movies
+✔ userController - create
+- Next: login and logout
+- CRUD - genres and movies
+- React
 
 React-
   
